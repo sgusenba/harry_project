@@ -1,0 +1,395 @@
+# Fitness & Sport Coaching – Single Page Application
+
+```html
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Harald Hochstöger – Fitness & Sport Coaching</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: #f5f5f5;
+      color: #222;
+      line-height: 1.6;
+    }
+
+    header {
+      background: linear-gradient(135deg, #0f172a, #1e3a8a);
+      color: white;
+      padding: 80px 20px;
+      text-align: center;
+    }
+
+    header h1 {
+      font-size: 3rem;
+      margin-bottom: 15px;
+    }
+
+    header p {
+      font-size: 1.3rem;
+      max-width: 800px;
+      margin: 0 auto 30px;
+    }
+
+    .btn {
+      display: inline-block;
+      background: #22c55e;
+      color: white;
+      padding: 14px 28px;
+      text-decoration: none;
+      border-radius: 10px;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+
+    .btn:hover {
+      background: #16a34a;
+    }
+
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: white;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+
+    nav ul {
+      display: flex;
+      justify-content: center;
+      list-style: none;
+      flex-wrap: wrap;
+    }
+
+    nav li {
+      margin: 10px 15px;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #111827;
+      font-weight: bold;
+    }
+
+    section {
+      max-width: 1200px;
+      margin: auto;
+      padding: 80px 20px;
+    }
+
+    .section-title {
+      text-align: center;
+      font-size: 2.4rem;
+      margin-bottom: 20px;
+      color: #0f172a;
+    }
+
+    .section-text {
+      text-align: center;
+      max-width: 900px;
+      margin: 0 auto 50px;
+      font-size: 1.1rem;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 25px;
+    }
+
+    .card {
+      background: white;
+      padding: 30px;
+      border-radius: 18px;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+      transition: 0.3s;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+    }
+
+    .card h3 {
+      margin-bottom: 15px;
+      color: #1e3a8a;
+    }
+
+    .image-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+    }
+
+    .image-placeholder {
+      height: 260px;
+      background: linear-gradient(135deg, #dbeafe, #bfdbfe);
+      border: 3px dashed #1e3a8a;
+      border-radius: 18px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: #1e3a8a;
+      font-size: 1.2rem;
+      font-weight: bold;
+      padding: 20px;
+    }
+
+    .about {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 40px;
+      align-items: center;
+    }
+
+    .about-box {
+      background: white;
+      padding: 35px;
+      border-radius: 18px;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+    }
+
+    ul.checklist {
+      list-style: none;
+      margin-top: 20px;
+    }
+
+    ul.checklist li {
+      margin-bottom: 14px;
+      padding-left: 28px;
+      position: relative;
+    }
+
+    ul.checklist li::before {
+      content: "✔";
+      position: absolute;
+      left: 0;
+      color: #22c55e;
+      font-weight: bold;
+    }
+
+    .contact {
+      background: #0f172a;
+      color: white;
+      border-radius: 24px;
+      padding: 50px 30px;
+      text-align: center;
+    }
+
+    .contact p {
+      margin: 12px 0;
+      font-size: 1.1rem;
+    }
+
+    footer {
+      background: #111827;
+      color: white;
+      text-align: center;
+      padding: 25px;
+      margin-top: 50px;
+    }
+
+    @media (max-width: 768px) {
+      header h1 {
+        font-size: 2.2rem;
+      }
+
+      .section-title {
+        font-size: 2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Harald Hochstöger</h1>
+    <p>
+      Professionelle Sport-, Fitness- und Gesundheitsförderung für Schulen,
+      Betriebe, Vereine und Gemeinden.
+    </p>
+    <a href="#kontakt" class="btn">Jetzt Kontakt aufnehmen</a>
+  </header>
+
+  <nav>
+    <ul>
+      <li><a href="#leistungen">Leistungen</a></li>
+      <li><a href="#uebermich">Über mich</a></li>
+      <li><a href="#bilder">Bilder</a></li>
+      <li><a href="#referenzen">Referenzen</a></li>
+      <li><a href="#kontakt">Kontakt</a></li>
+    </ul>
+  </nav>
+
+  <section id="leistungen">
+    <h2 class="section-title">Meine Leistungen</h2>
+    <p class="section-text">
+      Individuelle Betreuung, professionelle Planung und nachhaltige
+      Gesundheits- und Sportkonzepte – alles aus einer Hand.
+    </p>
+
+    <div class="cards">
+      <div class="card">
+        <h3>Sport & Fitnessförderung</h3>
+        <p>
+          Trainings- und Bewegungsprogramme für Schulen, Vereine,
+          Gemeinden und Unternehmen.
+        </p>
+      </div>
+
+      <div class="card">
+        <h3>Coaching & Betreuung</h3>
+        <p>
+          Individuelle Begleitung für Nachwuchssportler und ambitionierte
+          Freizeitsportler.
+        </p>
+      </div>
+
+      <div class="card">
+        <h3>Gesundheitsprojekte</h3>
+        <p>
+          Entwicklung und Umsetzung moderner Gesundheits- und
+          Bewegungsprojekte.
+        </p>
+      </div>
+
+      <div class="card">
+        <h3>Firmenfitness</h3>
+        <p>
+          Motivation, Teamgeist und Gesundheitsförderung für Betriebe und
+          Mitarbeiter.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section id="uebermich">
+    <h2 class="section-title">Über mich</h2>
+
+    <div class="about">
+      <div class="about-box">
+        <h3>Erfahrung & Kompetenz</h3>
+
+        <ul class="checklist">
+          <li>Langjährige Führungserfahrung in einem österreichweiten Geldinstitut</li>
+          <li>Betreuung von Nachwuchsrennläufern im alpinen Skilauf</li>
+          <li>Sport- und Gesundheitsprojekte für Schulen und Gemeinden</li>
+          <li>Kommunale Fitnessprojekte</li>
+          <li>Großes Netzwerk an Partnern und Experten</li>
+        </ul>
+      </div>
+
+      <div class="about-box">
+        <h3>Ausbildungen</h3>
+
+        <ul class="checklist">
+          <li>Fit-Lehrwart</li>
+          <li>Ski Alpin Übungsleiter</li>
+          <li>Seminare für Führungskräfte</li>
+          <li>Praxisorientierte Sport- und Gesundheitsweiterbildungen</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="bilder">
+    <h2 class="section-title">Impressionen</h2>
+    <p class="section-text">
+      Hier können später eigene Fotos von Trainings, Events, Projekten oder
+      Sportaktivitäten eingefügt werden.
+    </p>
+
+    <div class="image-grid">
+      <div class="image-placeholder">
+        Platzhalter für Trainingsfoto
+      </div>
+
+      <div class="image-placeholder">
+        Platzhalter für Ski- oder Sportevent
+      </div>
+
+      <div class="image-placeholder">
+        Platzhalter für Fitnessprojekt
+      </div>
+
+      <div class="image-placeholder">
+        Platzhalter für Coaching-Situation
+      </div>
+
+      <div class="image-placeholder">
+        Platzhalter für Gruppenfoto
+      </div>
+
+      <div class="image-placeholder">
+        Platzhalter für Gesundheitsprojekt
+      </div>
+    </div>
+  </section>
+
+  <section id="referenzen">
+    <h2 class="section-title">Warum mit mir arbeiten?</h2>
+
+    <div class="cards">
+      <div class="card">
+        <h3>Individuelle Konzepte</h3>
+        <p>
+          Jedes Projekt wird speziell auf Zielgruppe, Anforderungen und Ziele abgestimmt.
+        </p>
+      </div>
+
+      <div class="card">
+        <h3>Praxisorientiert</h3>
+        <p>
+          Fokus auf Motivation, Umsetzbarkeit und nachhaltige Ergebnisse.
+        </p>
+      </div>
+
+      <div class="card">
+        <h3>Alles aus einer Hand</h3>
+        <p>
+          Von der Planung bis zur Durchführung – professionell und unkompliziert.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section id="kontakt">
+    <div class="contact">
+      <h2 class="section-title" style="color:white;">Kontakt</h2>
+
+      <p><strong>Harald Hochstöger</strong></p>
+      <p>E-Mail: harald.hochstöger@email.com</p>
+      <p>Telefon: +43 XXX XXXXXXX</p>
+      <p>
+        Für Anfragen zu Sportprojekten, Coaching oder Gesundheitsförderung
+        freue ich mich auf Ihre Nachricht.
+      </p>
+    </div>
+  </section>
+
+  <footer>
+    © 2026 Harald Hochstöger – Fitness & Sport Coaching
+  </footer>
+
+</body>
+</html>
+```
+
+## Verwendung auf GitHub Pages
+
+1. Neues GitHub Repository erstellen
+2. Datei als `index.html` speichern
+3. Datei hochladen
+4. In den Repository Settings → Pages aktivieren
+5. Source auf `main branch` setzen
+6. Webseite ist danach online
