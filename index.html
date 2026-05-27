@@ -660,6 +660,108 @@
     margin-bottom: 1.5rem;
   }
 
+  /* ── GALLERY ── */
+  #galerie { background: var(--navy); padding: 5rem 5%; }
+
+  #galerie .section-label { color: var(--sky-light); }
+  #galerie .section-title { color: var(--white); }
+
+  .gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    margin-top: 2.5rem;
+  }
+
+  .gallery-item {
+    position: relative;
+    border-radius: 8px;
+    overflow: hidden;
+    aspect-ratio: 4/3;
+    background: var(--navy-mid);
+  }
+
+  .gallery-item img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.45s ease, filter 0.45s ease;
+    filter: brightness(0.92);
+  }
+
+  .gallery-item:hover img {
+    transform: scale(1.06);
+    filter: brightness(1.05);
+  }
+
+  .gallery-caption {
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    padding: 1rem 1.2rem 0.9rem;
+    background: linear-gradient(transparent, rgba(10,18,40,0.85));
+    color: rgba(255,255,255,0.92);
+    font-size: 0.82rem;
+    font-weight: 500;
+    letter-spacing: 0.03em;
+    opacity: 0;
+    transform: translateY(6px);
+    transition: opacity 0.3s, transform 0.3s;
+  }
+
+  .gallery-item:hover .gallery-caption {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* second testimonial variant */
+  .testimonial-wrap-light {
+    background: var(--off-white);
+    border: 1px solid var(--border);
+    border-left: 4px solid var(--sky);
+    border-radius: 8px;
+    padding: 2.5rem;
+    position: relative;
+    margin-top: 1.5rem;
+    overflow: hidden;
+  }
+
+  .testimonial-wrap-light::before {
+    content: '"';
+    position: absolute;
+    top: -20px; left: 20px;
+    font-family: 'Lora', serif;
+    font-size: 10rem;
+    color: rgba(91,143,204,0.1);
+    line-height: 1;
+    pointer-events: none;
+  }
+
+  .testimonial-wrap-light .testimonial-text {
+    font-family: 'Lora', serif;
+    font-style: italic;
+    font-size: 1.05rem;
+    color: var(--text);
+    line-height: 1.8;
+    position: relative;
+    z-index: 1;
+    margin-bottom: 1.2rem;
+  }
+
+  .testimonial-wrap-light .stars { color: #f0c040; margin-bottom: 0.5rem; }
+
+  .testimonial-wrap-light .author-avatar {
+    background: linear-gradient(135deg, var(--navy), var(--steel));
+  }
+
+  .testimonial-wrap-light .author-info .name { color: var(--navy); }
+  .testimonial-wrap-light .author-info .role { color: var(--text-muted); }
+
+  @media (max-width: 768px) {
+    .gallery-grid { grid-template-columns: 1fr; }
+    .gallery-item { aspect-ratio: 16/9; }
+    .testimonial-grid { grid-template-columns: 1fr !important; }
+  }
+
   /* ── FOOTER ── */
   footer {
     background: #111d35;
@@ -709,6 +811,7 @@
   <ul class="nav-links">
     <li><a href="#angebote">Angebote</a></li>
     <li><a href="#referenzen">Referenzen</a></li>
+    <li><a href="#galerie">Galerie</a></li>
     <li><a href="#ueber">Über Harry</a></li>
     <li><a href="#kontakt">Kontakt</a></li>
   </ul>
@@ -882,23 +985,69 @@
       </div>
     </div>
 
-    <!-- Testimonial -->
-    <div class="testimonial-wrap">
-      <div class="stars">★★★★★</div>
-      <p class="testimonial-text">
-        Das Freundinnen-Workout war wirklich eine tolle Erfahrung! Man fühlt sich überhaupt nicht überfordert und merkt die Anstrengung währenddessen kaum, weil es einfach so viel Spaß macht.
-        Der Trainer ist unglaublich sympathisch, herzlich und gleichzeitig sehr professionell. Schon nach dem zweiten Training merkt man deutliche Fortschritte bei Ausdauer und Muskulatur.
-        Ich würde das Training jederzeit weiterempfehlen!
-      </p>
-      <div class="testimonial-author">
-        <div class="author-avatar">M</div>
-        <div class="author-info">
-          <div class="name">Magdalena R.</div>
-          <div class="role">Teilnehmerin Freundinnen Workout</div>
+    <!-- Testimonials grid -->
+    <div style="display:grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-top: 0.5rem;" class="testimonial-grid">
+
+      <!-- Testimonial 1 -->
+      <div class="testimonial-wrap">
+        <div class="stars">★★★★★</div>
+        <p class="testimonial-text">
+          Das Freundinnen-Workout war wirklich eine tolle Erfahrung! Man fühlt sich überhaupt nicht überfordert und merkt die Anstrengung kaum, weil es einfach so viel Spaß macht.
+          Der Trainer ist unglaublich sympathisch, herzlich und gleichzeitig sehr professionell. Schon nach dem zweiten Training merkt man deutliche Fortschritte. Ich würde das Training jederzeit weiterempfehlen!
+        </p>
+        <div class="testimonial-author">
+          <div class="author-avatar">M</div>
+          <div class="author-info">
+            <div class="name">Magdalena R.</div>
+            <div class="role">Teilnehmerin Freundinnen Workout</div>
+          </div>
         </div>
       </div>
+
+      <!-- Testimonial 2 – referenz_2 -->
+      <div class="testimonial-wrap-light">
+        <div class="stars">★★★★★</div>
+        <p class="testimonial-text">
+          Herr Hochstöger zeichnete sich durch seine professionelle Planung, seine Verlässlichkeit sowie seine engagierte Betreuung aus. Die gesamte Organisation erfolgte „aus einer Hand" – von der Vorbereitung über die Koordination bis hin zur reibungslosen Durchführung vor Ort.
+        </p>
+        <div class="testimonial-author">
+          <div class="author-avatar">K</div>
+          <div class="author-info">
+            <div class="name">Kooperationspartner</div>
+            <div class="role">Projektbewertung · Organisation &amp; Durchführung</div>
+          </div>
+        </div>
+      </div>
+
     </div>
 
+  </div>
+</section>
+
+<!-- ── GALERIE ── -->
+<section id="galerie">
+  <div class="section-inner">
+    <div class="section-label">Einblicke</div>
+    <h2 class="section-title" style="color:var(--white);">Harry in Aktion</h2>
+
+    <div class="gallery-grid">
+
+      <div class="gallery-item">
+        <img src="ski_trainer.jpg" alt="Harry als Ski-Trainer mit Nachwuchsrennläufer" loading="lazy">
+        <div class="gallery-caption">Nachwuchsförderung im alpinen Skilauf</div>
+      </div>
+
+      <div class="gallery-item">
+        <img src="ski_trainer2.jpg" alt="Rennläufer im Slalom-Training" loading="lazy">
+        <div class="gallery-caption">Slalom-Training mit Athletin</div>
+      </div>
+
+      <div class="gallery-item">
+        <img src="pilot_harry.jpg" alt="Harry als Pilot über Österreich" loading="lazy">
+        <div class="gallery-caption">Mit Leidenschaft über Österreich</div>
+      </div>
+
+    </div>
   </div>
 </section>
 
