@@ -194,8 +194,10 @@ nav {
   border: 1px solid rgba(91,143,204,0.1);
 }
 .hero-logo-bg img {
-  width: 240px; height: 240px;
-  object-fit: contain;
+  width: 300px;        /* increased from 240px */
+  height: 300px;       /* keep square for circle crop */
+  object-fit: cover;   /* IMPORTANT: makes it fill the circle properly */
+  border-radius: 50%;   /* makes the image itself round */
   mix-blend-mode: lighten;
   filter: brightness(1.2) drop-shadow(0 0 20px rgba(91,143,204,0.4));
 }
