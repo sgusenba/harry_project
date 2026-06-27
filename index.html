@@ -590,6 +590,12 @@ footer {
 }
 footer a { color: var(--sky-light); text-decoration: none; }
 
+
+.modal{display:none;position:fixed;inset:0;background:rgba(10,20,40,.75);backdrop-filter:blur(6px);z-index:9999;justify-content:center;align-items:center;padding:30px}
+.modal-content{background:#fff;width:min(720px,100%);max-height:85vh;overflow:auto;border-radius:12px;padding:40px;position:relative}
+.modal-close{position:absolute;right:20px;top:10px;font-size:32px;cursor:pointer}
+.modal-content h2{color:var(--navy)} .modal-content p{margin:14px 0;line-height:1.7;color:var(--text-muted)}
+
 /* RESPONSIVE */
 @media (max-width: 768px) {
   .hero-inner { grid-template-columns: 1fr; text-align: center; gap: 2.5rem; }
@@ -1004,8 +1010,12 @@ footer a { color: var(--sky-light); text-decoration: none; }
 
 <!-- FOOTER -->
 <footer>
-  <p>&copy; 2026 Harry Hochstöger – Sport &amp; Fitness · <a href="mailto:office@fitamweg.at">Kontakt</a></p>
+  <p>&copy; 2026 Harry Hochstöger – Sport &amp; Fitness · <a href="mailto:office@fitamweg.at">Kontakt</a> · <a href="#" onclick="openImpressum();return false;">Impressum</a></p>
 </footer>
+
+<div id="impressumModal" class="modal"><div class="modal-content"><span class="modal-close" onclick="closeImpressum()">&times;</span><h2>Impressum</h2><p><strong>Harald Hochstöger</strong><br>Gartenstraße 5<br>4311 Schwertberg<br>Österreich</p><p><strong>E-Mail:</strong> <a href="mailto:office@fitamweg.at">office@fitamweg.at</a></p><p><strong>Unternehmensgegenstand:</strong><br>Freies Gewerbe – Dienstleistungen im Bereich Bewegung, Fitness und Gesundheit.</p><p>Mitglied der Wirtschaftskammer Oberösterreich.</p><p>Keine Umsatzsteuerpflicht.</p></div></div>
+<script>function openImpressum(){document.getElementById("impressumModal").style.display="flex";}function closeImpressum(){document.getElementById("impressumModal").style.display="none";}window.onclick=function(e){let m=document.getElementById("impressumModal");if(e.target===m)closeImpressum();}</script>
+
 
 </body>
 </html>
