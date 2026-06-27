@@ -591,10 +591,10 @@ footer {
 footer a { color: var(--sky-light); text-decoration: none; }
 
 
-.modal{display:none;position:fixed;inset:0;background:rgba(10,20,40,.75);backdrop-filter:blur(6px);z-index:9999;justify-content:center;align-items:center;padding:30px}
-.modal-content{background:#fff;width:min(720px,100%);max-height:85vh;overflow:auto;border-radius:12px;padding:40px;position:relative}
-.modal-close{position:absolute;right:20px;top:10px;font-size:32px;cursor:pointer}
-.modal-content h2{color:var(--navy)} .modal-content p{margin:14px 0;line-height:1.7;color:var(--text-muted)}
+/* LIGHTBOX */
+.lightbox{display:none;position:fixed;inset:0;background:rgba(0,0,0,.9);z-index:10000;justify-content:center;align-items:center;padding:20px}
+.lightbox img{max-width:95%;max-height:95%;border-radius:10px}
+.lightbox .close{position:absolute;top:20px;right:30px;color:#fff;font-size:40px;cursor:pointer}
 
 /* RESPONSIVE */
 @media (max-width: 768px) {
@@ -1010,12 +1010,19 @@ footer a { color: var(--sky-light); text-decoration: none; }
 
 <!-- FOOTER -->
 <footer>
-  <p>&copy; 2026 Harry Hochstöger – Sport &amp; Fitness · <a href="mailto:office@fitamweg.at">Kontakt</a> · <a href="#" onclick="openImpressum();return false;">Impressum</a></p>
+  <p>&copy; 2026 Harry Hochstöger – Sport &amp; Fitness · <a href="mailto:office@fitamweg.at">Kontakt</a></p>
 </footer>
 
-<div id="impressumModal" class="modal"><div class="modal-content"><span class="modal-close" onclick="closeImpressum()">&times;</span><h2>Impressum</h2><p><strong>Harald Hochstöger</strong><br>Gartenstraße 5<br>4311 Schwertberg<br>Österreich</p><p><strong>E-Mail:</strong> <a href="mailto:office@fitamweg.at">office@fitamweg.at</a></p><p><strong>Unternehmensgegenstand:</strong><br>Freies Gewerbe – Dienstleistungen im Bereich Bewegung, Fitness und Gesundheit.</p><p>Keine Umsatzsteuerpflicht.</p></div></div>
-<script>function openImpressum(){document.getElementById("impressumModal").style.display="flex";}function closeImpressum(){document.getElementById("impressumModal").style.display="none";}window.onclick=function(e){let m=document.getElementById("impressumModal");if(e.target===m)closeImpressum();}</script>
 
-
+<div class="lightbox" id="lightbox"><span class="close" onclick="closeLightbox()">&times;</span><img id="lightboxImg"></div>
+<script>
+document.querySelectorAll('#galerie .gallery-item img').forEach(img=>{
+ img.style.cursor='zoom-in';
+ img.onclick=()=>{document.getElementById('lightbox').style.display='flex';document.getElementById('lightboxImg').src=img.src;}
+});
+function closeLightbox(){document.getElementById('lightbox').style.display='none';}
+document.getElementById('lightbox').onclick=e=>{if(e.target.id==='lightbox')closeLightbox();}
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closeLightbox();});
+</script>
 </body>
 </html>
