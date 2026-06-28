@@ -176,6 +176,31 @@ nav {
 }
 .btn-outline:hover { border-color: var(--accent); background: rgba(91,143,204,0.12); }
 .hero-logo-wrap { display: flex; justify-content: center; align-items: center; }
+.hero-logo-stack{
+    position:relative;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+.hero-brand-logo{
+    position:absolute;
+
+    width:180px;
+    height:auto;
+
+    right:-90px;
+    bottom:15px;
+
+    filter:
+        drop-shadow(0 10px 25px rgba(0,0,0,.25));
+
+    transition:.35s;
+}
+
+.hero-brand-logo:hover{
+    transform:scale(1.08);
+}
 .hero-logo-bg {
   width: 320px; height: 320px;
   border-radius: 50%;
@@ -651,11 +676,21 @@ footer a { color: var(--sky-light); text-decoration: none; }
         <a href="#kontakt" class="btn-outline">Kontakt aufnehmen</a>
       </div>
     </div>
-    <div class="hero-logo-wrap">
-      <div class="hero-logo-bg">
-        <img src="face_harry.png" alt="Harry Hochstöger Fitness">
-      </div>
+   <div class="hero-logo-wrap">
+
+    <div class="hero-logo-stack">
+
+        <div class="hero-logo-bg">
+            <img src="face_harry.png" alt="Harry Hochstöger Fitness">
+        </div>
+
+        <img class="hero-brand-logo"
+             src="Logo_frei.png"
+             alt="Harry Logo">
+
     </div>
+
+</div>
   </div>
 </section>
 
