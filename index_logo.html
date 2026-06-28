@@ -1,0 +1,1012 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Harry – Sport & Fitness</title>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Lora:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+:root {
+  --navy: #1a2744;
+  --navy-mid: #243260;
+  --steel: #4a5a7a;
+  --sky: #5b8fcc;
+  --sky-light: #a8c8f0;
+  --sky-pale: #deeaf8;
+  --accent: #7eb5e8;
+  --white: #ffffff;
+  --off-white: #f4f8fd;
+  --text: #1e2d4a;
+  --text-muted: #5a6a85;
+  --border: #d0dff0;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Outfit', sans-serif;
+  background: var(--white);
+  color: var(--text);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+/* NAV */
+nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  background: rgba(26, 39, 68, 0.96);
+  backdrop-filter: blur(10px);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 5%;
+  height: 68px;
+  border-bottom: 1px solid rgba(91,143,204,0.25);
+}
+.nav-logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+}
+.nav-logo img {
+  height: 46px; width: 46px;
+  object-fit: contain;
+  border-radius: 50%;
+  background: transparent;
+  mix-blend-mode: lighten;
+  filter: brightness(1.15);
+}
+.nav-brand {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--white);
+  letter-spacing: 0.03em;
+}
+.nav-brand span { color: var(--accent); }
+.nav-links {
+  display: flex;
+  gap: 2rem;
+  list-style: none;
+}
+.nav-links a {
+  color: rgba(255,255,255,0.8);
+  text-decoration: none;
+  font-size: 0.9rem;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  transition: color 0.2s;
+}
+.nav-links a:hover { color: var(--accent); }
+
+/* HERO */
+.hero {
+  min-height: 100vh;
+  background: linear-gradient(150deg, var(--navy) 0%, var(--navy-mid) 50%, #1e3a6e 100%);
+  display: flex;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+  padding-top: 68px;
+}
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 60% 50% at 80% 50%, rgba(91,143,204,0.18) 0%, transparent 70%),
+    radial-gradient(ellipse 40% 60% at 10% 80%, rgba(126,181,232,0.1) 0%, transparent 60%);
+}
+.hero::after {
+  content: '';
+  position: absolute;
+  top: -100px; right: -100px;
+  width: 500px; height: 500px;
+  border-radius: 50%;
+  border: 1px solid rgba(91,143,204,0.15);
+  pointer-events: none;
+}
+.hero-inner {
+  position: relative;
+  z-index: 1;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 6rem 5%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+}
+.hero-tag {
+  display: inline-block;
+  background: rgba(91,143,204,0.2);
+  border: 1px solid rgba(91,143,204,0.4);
+  color: var(--accent);
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 6px 16px;
+  border-radius: 20px;
+  margin-bottom: 1.5rem;
+}
+.hero h1 {
+  font-family: 'Outfit', sans-serif;
+  font-size: clamp(2.4rem, 4.5vw, 3.8rem);
+  font-weight: 800;
+  color: var(--white);
+  line-height: 1.1;
+  margin-bottom: 1.2rem;
+}
+.hero h1 em { font-style: normal; color: var(--accent); }
+.hero-sub {
+  color: rgba(255,255,255,0.72);
+  font-size: 1.1rem;
+  font-weight: 300;
+  max-width: 480px;
+  margin-bottom: 2.5rem;
+  line-height: 1.7;
+}
+.btn-primary {
+  display: inline-block;
+  background: var(--sky);
+  color: var(--white);
+  font-weight: 700;
+  font-size: 0.95rem;
+  letter-spacing: 0.04em;
+  padding: 14px 36px;
+  border-radius: 4px;
+  text-decoration: none;
+  transition: background 0.2s, transform 0.2s;
+}
+.btn-primary:hover { background: var(--accent); transform: translateY(-2px); }
+.btn-outline {
+  display: inline-block;
+  border: 2px solid rgba(255,255,255,0.4);
+  color: var(--white);
+  font-weight: 600;
+  font-size: 0.95rem;
+  padding: 12px 32px;
+  border-radius: 4px;
+  text-decoration: none;
+  margin-left: 1rem;
+  transition: border-color 0.2s, background 0.2s;
+}
+.btn-outline:hover { border-color: var(--accent); background: rgba(91,143,204,0.12); }
+.hero-logo-wrap { display: flex; justify-content: center; align-items: center; }
+.hero-logo-bg {
+  width: 320px; height: 320px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(91,143,204,0.15) 0%, transparent 70%);
+  border: 1px solid rgba(91,143,204,0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+.hero-logo-bg::before {
+  content: '';
+  position: absolute;
+  inset: -20px;
+  border-radius: 50%;
+  border: 1px solid rgba(91,143,204,0.1);
+}
+.hero-logo-bg img {
+  width: 280px;        /* increased from 240px */
+  height: 280px;       /* keep square for circle crop */
+  object-fit: cover;   /* IMPORTANT: makes it fill the circle properly */
+  border-radius: 50%;   /* makes the image itself round */
+  mix-blend-mode: lighten;
+  filter: brightness(1.2) drop-shadow(0 0 20px rgba(91,143,204,0.4));
+}
+
+/* SECTIONS BASE */
+section { padding: 5rem 5%; }
+.section-inner { max-width: 1100px; margin: 0 auto; }
+.section-label {
+  font-size: 0.76rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--sky);
+  margin-bottom: 0.6rem;
+}
+.section-title {
+  font-size: clamp(1.8rem, 3vw, 2.6rem);
+  font-weight: 800;
+  color: var(--navy);
+  line-height: 1.15;
+  margin-bottom: 1rem;
+}
+.section-lead {
+  font-size: 1.05rem;
+  color: var(--text-muted);
+  max-width: 600px;
+  line-height: 1.75;
+  margin-bottom: 3rem;
+}
+
+/* ANGEBOTE */
+#angebote { background: var(--off-white); }
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 1.8rem;
+}
+.card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  overflow: hidden;
+  transition: transform 0.25s, box-shadow 0.25s;
+}
+.card:hover { transform: translateY(-6px); box-shadow: 0 16px 40px rgba(26,39,68,0.1); }
+.card-header {
+  background: linear-gradient(135deg, var(--navy) 0%, var(--navy-mid) 100%);
+  padding: 2rem;
+  position: relative;
+  overflow: hidden;
+}
+.card-header::after {
+  content: '';
+  position: absolute;
+  bottom: -30px; right: -30px;
+  width: 100px; height: 100px;
+  border-radius: 50%;
+  background: rgba(91,143,204,0.15);
+}
+.card-icon { font-size: 2rem; margin-bottom: 0.8rem; line-height: 1; }
+.card-title { font-size: 1.3rem; font-weight: 700; color: var(--white); line-height: 1.2; }
+.card-subtitle { color: var(--sky-light); font-size: 0.85rem; font-style: italic; margin-top: 0.3rem; }
+.card-body { padding: 1.8rem; }
+.card-body p { color: var(--text-muted); font-size: 0.95rem; line-height: 1.7; margin-bottom: 1.4rem; }
+.card-meta { display: flex; flex-direction: column; gap: 0.5rem; border-top: 1px solid var(--border); padding-top: 1.2rem; margin-top: 0.5rem; }
+.meta-item { display: flex; align-items: center; gap: 0.6rem; font-size: 0.88rem; color: var(--steel); }
+.meta-item svg { flex-shrink: 0; color: var(--sky); }
+.tag-list { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1rem; }
+.tag { background: var(--sky-pale); color: var(--navy-mid); font-size: 0.78rem; font-weight: 600; padding: 4px 12px; border-radius: 20px; }
+
+/* REFERENZEN */
+#referenzen { background: var(--white); }
+.ref-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 3rem;
+}
+.ref-card {
+  background: var(--off-white);
+  border: 1px solid var(--border);
+  border-left: 4px solid var(--sky);
+  border-radius: 6px;
+  padding: 1.5rem;
+  transition: box-shadow 0.2s;
+}
+.ref-card:hover { box-shadow: 0 8px 24px rgba(26,39,68,0.08); }
+.ref-icon {
+  width: 40px; height: 40px;
+  background: linear-gradient(135deg, var(--navy), var(--steel));
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1rem;
+  color: white;
+  font-size: 1.1rem;
+}
+.ref-card h4 { font-size: 1rem; font-weight: 700; color: var(--navy); margin-bottom: 0.3rem; }
+.ref-card p { font-size: 0.88rem; color: var(--text-muted); line-height: 1.6; }
+
+/* TESTIMONIAL */
+.testimonial-wrap {
+  background: linear-gradient(135deg, var(--navy) 0%, var(--navy-mid) 100%);
+  border-radius: 12px;
+  padding: 3rem;
+  position: relative;
+  overflow: hidden;
+}
+.testimonial-wrap::before {
+  content: '\201C';
+  position: absolute;
+  top: -20px; left: 30px;
+  font-family: 'Lora', serif;
+  font-size: 14rem;
+  color: rgba(91,143,204,0.12);
+  line-height: 1;
+  pointer-events: none;
+}
+.testimonial-text {
+  font-family: 'Lora', serif;
+  font-style: italic;
+  font-size: 1.15rem;
+  color: rgba(255,255,255,0.9);
+  line-height: 1.8;
+  position: relative;
+  z-index: 1;
+  margin-bottom: 1.5rem;
+  max-width: 820px;
+}
+.testimonial-author { display: flex; align-items: center; gap: 0.8rem; }
+.author-avatar {
+  width: 44px; height: 44px;
+  background: linear-gradient(135deg, var(--sky), var(--accent));
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 1rem;
+  color: white;
+}
+.author-info .name { font-weight: 600; color: var(--white); font-size: 0.95rem; }
+.author-info .role { font-size: 0.8rem; color: var(--sky-light); }
+.stars { color: #f0c040; font-size: 1rem; letter-spacing: 2px; margin-bottom: 0.3rem; }
+
+/* TESTIMONIAL LIGHT */
+.testimonial-wrap-light {
+  background: var(--off-white);
+  border: 1px solid var(--border);
+  border-left: 4px solid var(--sky);
+  border-radius: 8px;
+  padding: 2.5rem;
+  position: relative;
+  overflow: hidden;
+}
+.testimonial-wrap-light::before {
+  content: '\201C';
+  position: absolute;
+  top: -20px; left: 20px;
+  font-family: 'Lora', serif;
+  font-size: 10rem;
+  color: rgba(91,143,204,0.1);
+  line-height: 1;
+  pointer-events: none;
+}
+.testimonial-wrap-light .testimonial-text {
+  font-family: 'Lora', serif;
+  font-style: italic;
+  font-size: 1.05rem;
+  color: var(--text);
+  line-height: 1.8;
+  position: relative;
+  z-index: 1;
+  margin-bottom: 1.2rem;
+}
+.testimonial-wrap-light .stars { color: #f0c040; margin-bottom: 0.5rem; }
+.testimonial-wrap-light .author-avatar { background: linear-gradient(135deg, var(--navy), var(--steel)); }
+.testimonial-wrap-light .author-info .name { color: var(--navy); }
+.testimonial-wrap-light .author-info .role { color: var(--text-muted); }
+
+/* ABOUT */
+#ueber { background: var(--off-white); }
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: start;
+}
+.ausbildung-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+.ausbildung-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 1rem 1.2rem;
+  font-size: 0.95rem;
+  color: var(--text);
+  font-weight: 500;
+}
+.ausbildung-list li::before {
+  content: '\2713';
+  flex-shrink: 0;
+  width: 24px; height: 24px;
+  background: var(--sky);
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75rem;
+  font-weight: 700;
+  margin-top: 1px;
+}
+.about-right h3 { font-size: 1.4rem; font-weight: 700; color: var(--navy); margin-bottom: 1rem; }
+.about-right p { color: var(--text-muted); line-height: 1.75; font-size: 0.97rem; margin-bottom: 1rem; }
+.offer-bullets { list-style: none; display: flex; flex-direction: column; gap: 0.8rem; margin-top: 1.2rem; }
+.offer-bullets li { display: flex; gap: 0.8rem; align-items: flex-start; font-size: 0.95rem; color: var(--text-muted); line-height: 1.6; }
+.offer-bullets li span.bullet { color: var(--sky); font-size: 1.2rem; flex-shrink: 0; margin-top: -1px; }
+
+/* CONTACT */
+#kontakt { background: linear-gradient(150deg, var(--navy) 0%, var(--navy-mid) 100%); }
+#kontakt .section-label { color: var(--sky-light); }
+#kontakt .section-title { color: var(--white); }
+#kontakt .section-lead { color: rgba(255,255,255,0.65); }
+.contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: start; }
+.contact-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 1.2rem;
+  padding: 1.5rem;
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(91,143,204,0.2);
+  border-radius: 8px;
+  margin-bottom: 1rem;
+  text-decoration: none;
+  transition: background 0.2s;
+}
+.contact-item:hover { background: rgba(91,143,204,0.12); }
+.contact-icon {
+  width: 46px; height: 46px;
+  background: var(--sky);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  color: white;
+}
+.contact-label { font-size: 0.78rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--sky-light); margin-bottom: 0.3rem; }
+.contact-value { font-size: 1.1rem; font-weight: 600; color: var(--white); word-break: break-all; }
+.contact-value a {
+  color: inherit;
+  text-decoration: none;
+}
+.contact-value a:hover {
+  text-decoration: underline;
+}
+.contact-cta { background: rgba(255,255,255,0.05); border: 1px solid rgba(91,143,204,0.2); border-radius: 8px; padding: 2rem; }
+.contact-cta h3 { font-size: 1.3rem; font-weight: 700; color: white; margin-bottom: 0.7rem; }
+.contact-cta p { color: rgba(255,255,255,0.6); font-size: 0.95rem; line-height: 1.7; margin-bottom: 1.5rem; }
+
+/* GALLERY */
+#galerie { background: var(--navy); padding: 5rem 5%; }
+#galerie .section-label { color: var(--sky-light); }
+#galerie .section-title { color: var(--white); }
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  margin-top: 2.5rem;
+}
+.gallery-item {
+  position: relative;
+  border-radius: 8px;
+  overflow: hidden;
+  aspect-ratio: 4/3;
+  background: var(--navy-mid);
+}
+.gallery-item img {
+  width: 100%; height: 100%;
+  object-fit: contain;
+  display: block;
+  transition: transform 0.45s ease, filter 0.45s ease;
+  filter: brightness(0.92);
+}
+.gallery-item:hover img { transform: scale(1.06); filter: brightness(1.05); }
+.gallery-caption {
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  padding: 1rem 1.2rem 0.9rem;
+  background: linear-gradient(transparent, rgba(10,18,40,0.85));
+  color: rgba(255,255,255,0.92);
+  font-size: 0.82rem;
+  font-weight: 500;
+  letter-spacing: 0.03em;
+  opacity: 0;
+  transform: translateY(6px);
+  transition: opacity 0.3s, transform 0.3s;
+}
+.gallery-item:hover .gallery-caption { opacity: 1; transform: translateY(0); }
+
+
+/* PARTNER */
+#partner { background: var(--off-white); }
+.partner-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+.partner-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  background: var(--white);
+  border: 2px solid var(--border);
+  border-radius: 12px;
+  padding: 2.5rem 2rem;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+.partner-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, var(--navy) 0%, var(--navy-mid) 100%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: -1;
+}
+.partner-card:hover {
+  border-color: var(--sky);
+  box-shadow: 0 12px 32px rgba(26,39,68,0.15);
+  transform: translateY(-4px);
+}
+.partner-card:hover::before {
+  opacity: 0.05;
+}
+.partner-icon {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.partner-card h3 {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--navy);
+  margin-bottom: 0.4rem;
+}
+.partner-card p {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  margin-bottom: 1.5rem;
+  font-style: italic;
+}
+.partner-link {
+  color: var(--sky);
+  font-weight: 600;
+  font-size: 0.9rem;
+  letter-spacing: 0.03em;
+  margin-top: auto;
+  transition: color 0.2s ease;
+}
+.partner-card:hover .partner-link {
+  color: var(--accent);
+}
+
+/* FOOTER */
+footer {
+  background: #111d35;
+  padding: 2rem 5%;
+  text-align: center;
+  color: rgba(255,255,255,0.4);
+  font-size: 0.85rem;
+  border-top: 1px solid rgba(91,143,204,0.1);
+}
+footer a { color: var(--sky-light); text-decoration: none; }
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .hero-inner { grid-template-columns: 1fr; text-align: center; gap: 2.5rem; }
+  .hero-sub { margin: 0 auto 2rem; }
+  .btn-outline { margin: 1rem 0 0; display: block; text-align: center; }
+  .hero-logo-bg { width: 220px; height: 220px; }
+  .hero-logo-bg img { width: 160px; height: 160px; }
+  .about-grid { grid-template-columns: 1fr; gap: 2rem; }
+  .contact-grid { grid-template-columns: 1fr; gap: 1.5rem; }
+  .nav-links { display: none; }
+  .gallery-grid { grid-template-columns: 1fr; }
+  .gallery-item { aspect-ratio: 16/9; }
+  .testimonial-grid { grid-template-columns: 1fr !important; }
+}
+
+/* ANIMATIONS */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.hero-content > * { animation: fadeUp 0.7s ease both; }
+.hero-content > *:nth-child(1) { animation-delay: 0.1s; }
+.hero-content > *:nth-child(2) { animation-delay: 0.2s; }
+.hero-content > *:nth-child(3) { animation-delay: 0.3s; }
+.hero-content > *:nth-child(4) { animation-delay: 0.45s; }
+.hero-logo-wrap { animation: fadeUp 0.9s 0.3s ease both; }
+.hero-logo-stack{position:relative;display:flex;justify-content:center;align-items:center}.hero-brand-logo{position:absolute;width:180px;height:auto;right:-90px;bottom:15px;filter:drop-shadow(0 10px 25px rgba(0,0,0,.25));transition:.35s}.hero-brand-logo:hover{transform:scale(1.08)}@media(max-width:768px){.hero-brand-logo{width:120px;right:-35px;bottom:-10px;}}
+</style>
+</head>
+<body>
+
+<!-- NAVIGATION -->
+<nav>
+  <a href="#" class="nav-logo">
+    <img src="Logo_frei.png" alt="Harry Logo">
+    <span class="nav-brand">Harry <span>Hochstöger</span></span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#angebote">Angebote</a></li>
+    <li><a href="#referenzen">Referenzen</a></li>
+    <li><a href="#partner">Partner</a></li>
+    <li><a href="#galerie">Galerie</a></li>
+    <li><a href="#ueber">Über mich</a></li>
+    <li><a href="#kontakt">Kontakt</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-content">
+      <div class="hero-tag">Sport &amp; Fitness gehört gefördert</div>
+      <h1>Bewegung macht<br><em>den Unterschied.</em></h1>
+      <p class="hero-sub">
+       Professionelle Sport- und Fitnessförderung für Kinder, Erwachsene, Senioren, Athleten, Schulen, Betriebe, Vereine und Gemeinden – von der Planung bis zur Durchführung, alles aus einer Hand.
+      </p>
+      <div>
+        <a href="#angebote" class="btn-primary">Angebote entdecken</a>
+        <a href="#kontakt" class="btn-outline">Kontakt aufnehmen</a>
+      </div>
+    </div>
+    <div class="hero-logo-wrap">
+      <div class="hero-logo-bg">
+        <img src="face_harry.png" alt="Harry Hochstöger Fitness">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ANGEBOTE -->
+<section id="angebote">
+  <div class="section-inner">
+    <div class="section-label">Kursangebote</div>
+    <h2 class="section-title">Gemeinsam aktiv werden</h2>
+    <p class="section-lead">Maßgeschneiderte Bewegungseinheiten für unterschiedliche Zielgruppen – mit Freude, ohne Leistungsdruck.</p>
+    <div class="cards-grid">
+
+       <div class="card">
+        <div class="card-header">
+          <div class="card-icon">🏃</div>
+          <div class="card-title">Speziell für dich</div>
+          <div class="card-subtitle">Individuelles Kursangebot – flexibel & maßgeschneidert</div>
+        </div>
+        <div class="card-body">
+          <div class="tag-list">
+            <span class="tag">Flexibel</span>
+            <span class="tag">Angepasst</span>
+            <span class="tag">Alle Level</span>
+          </div>
+          <p>Von Gesunderhaltung mit Schwerpunkten wie Osteoporoseprävention, Rückengesundheit und funktionellem Krafttraining im Alltag – geeignet für alle Altersgruppen über Einzelcoachings zur gezielten Unterstützung deines Sports. So entsteht ein Training, das sich an dich anpasst – nicht umgekehrt.</p>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <div class="card-icon">🏃</div>
+          <div class="card-title">Gemeinsam in Bewegung – mit Harry</div>
+          <div class="card-subtitle">Die aktive halbe Stunde für mehr Kraft &amp; Wohlbefinden</div>
+        </div>
+        <div class="card-body">
+          <div class="tag-list">
+            <span class="tag">Seniorium</span>
+            <span class="tag">Sanft</span>
+            <span class="tag">Alle Level</span>
+          </div>
+          <p>Angenehme Bewegungseinheit mit Fokus auf Kraft, Beweglichkeit, Gleichgewicht und aufrechte Haltung. Übungen können im Stehen oder Sitzen durchgeführt werden – ganz ohne Leistungsdruck.</p>
+          <div class="card-meta">
+            <div class="meta-item">
+              <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+              30 Minuten
+            </div>
+            <div class="meta-item">
+              <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+              ca. 10 Personen
+            </div>
+            <div class="meta-item">
+              <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              Direkt vor Ort im Seniorium
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <div class="card-icon">🌿</div>
+          <div class="card-title">Freundinnen Workout</div>
+          <div class="card-subtitle">Raus aus dem Alltag – gemeinsam stark werden</div>
+        </div>
+        <div class="card-body">
+          <div class="tag-list">
+            <span class="tag">Outdoor</span>
+            <span class="tag">Kraft</span>
+            <span class="tag">Energie</span>
+          </div>
+          <p>Lockeres Laufen, funktionelle Übungen am Fitweg entlang der Aist, Team-Partnerübungen und bewusste Natur- &amp; Atemmomente. Für alle Fitnesslevels – mit guter Energie und Freude an der Bewegung.</p>
+          <div class="card-meta">
+            <div class="meta-item">
+              <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+              60 Minuten
+            </div>
+            <div class="meta-item">
+              <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+              max. 6 Personen
+            </div>
+            <div class="meta-item">
+              <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              Fitweg entlang der Aist / Wald
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <div class="card-icon">🏫</div>
+          <div class="card-title">Maßgeschneiderte Programme</div>
+          <div class="card-subtitle">Für Schulen, Betriebe, Vereine &amp; Gemeinden</div>
+        </div>
+        <div class="card-body">
+          <div class="tag-list">
+            <span class="tag">Flexibel</span>
+            <span class="tag">Ganzheitlich</span>
+            <span class="tag">Partnerschaft</span>
+          </div>
+          <p>Individuelle Sport- und Gesundheitsprojekte – von der Konzeption bis zur Umsetzung. Mit einem großen Partnernetzwerk und jahrelanger Erfahrung in Mitarbeiterführung und Organisation.</p>
+          <div class="card-meta">
+            <div class="meta-item">
+              <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+              Planung &amp; Durchführung aus einer Hand
+            </div>
+            <div class="meta-item">
+              <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+              Gruppen jeder Größe
+            </div>
+            <div class="meta-item">
+              <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
+              Anfrage &amp; Beratung jederzeit möglich
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- REFERENZEN -->
+<section id="referenzen">
+ 
+  <div class="section-inner">
+    <div class="section-label">Erfahrung &amp; Referenzen</div>
+    <h2 class="section-title">Was ich mitbringe</h2>
+    <p class="section-lead">Langjährige Praxis in Sport, Führung und Projektmanagement – österreichweit.</p>
+    
+    <div class="ref-grid">
+     <div class="ref-card">
+        <div class="ref-icon">🏙️</div>
+        <h4> Gesunderhaltung</h4>
+        <p>Osteoporose Prävention, Rückengesundheit, Krafttraining im Alltag uvm. Zielgerichtete und maßgeschneiderte Angebote für jede Altersgruppe.</p>
+      </div>
+      <div class="ref-card">
+        <div class="ref-icon">🏙️</div>
+        <h4>Einzelcoaching</h4>
+        <p>Unterstützendes Training für deinen Sport.</p>
+      </div>
+      <div class="ref-card">
+        <div class="ref-icon">⛷️</div>
+        <h4>Nachwuchsathleten</h4>
+        <p>Betreuung von Nachwuchsathleten – von der Technik bis zur mentalen Stärke.</p>
+      </div>
+      <div class="ref-card">
+        <div class="ref-icon">🏫</div>
+        <h4>Schul- &amp; Gemeindeprojekte</h4>
+        <p>Sport- und Gesundheitsprojekte für Schulen und Gemeinden – nachhaltig und praxisnah umgesetzt.</p>
+      </div>
+      <div class="ref-card">
+        <div class="ref-icon">🏙️</div>
+        <h4>Kommunale Fitnessprojekte</h4>
+        <p>Entwicklung und Durchführung kommunaler Fitnessprojekte.</p>
+      </div>
+     
+    </div>
+
+    <!-- Testimonials -->
+    <div style="display:grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-top: 0.5rem;" class="testimonial-grid">
+
+      <!-- Testimonial 1: Freundinnen Workout -->
+      <div class="testimonial-wrap">
+        <div class="stars">★★★★★</div>
+        <p class="testimonial-text">
+          Das Freundinnen-Workout war wirklich eine tolle Erfahrung! Man fühlt sich überhaupt nicht überfordert und merkt die Anstrengung kaum, weil es so viel Spaß macht. Umso überraschender ist der Muskelkater am nächsten Tag!
+          Der Trainer ist unglaublich sympathisch, herzlich und gleichzeitig sehr professionell. Schon nach dem zweiten Training merkt man deutliche Fortschritte. Ich würde das Training jederzeit weiterempfehlen!
+        </p>
+        <div class="testimonial-author">
+          <div class="author-avatar">M</div>
+          <div class="author-info">
+            <div class="name">Teilnehmerin – Freundinnen Workout</div>
+            <div class="role">Outdoor-Training entlang der Aist</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Testimonial 2: Schöfer Florian -->
+      <div class="testimonial-wrap-light">
+        <div class="stars">★★★★★</div>
+        <p class="testimonial-text">
+          Gerade weil ich als Junioren-Radrennfahrer beinahe täglich stundenlang am Rennrad trainiere, ist es für mich als Leistungssportler enorm wichtig, durch zusätzliches Krafttraining meine Beinmuskulatur zu entwickeln und den gesamten Bewegungsapparat zu stärken.
+          Harry ist mir hierfür der professionelle Partner, der mir hilft, mein Radtraining perfekt zu ergänzen.
+        </p>
+        <div class="testimonial-author">
+          <div class="author-avatar" style="background: linear-gradient(135deg, var(--navy), var(--steel));">SF</div>
+          <div class="author-info">
+            <div class="name" style="color: var(--navy);">Schöfer Florian</div>
+            <div class="role" style="color: var(--text-muted);">Junioren Radrennfahrer</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Testimonial 3: Mosaik Mittelschule – full width -->
+    <div class="testimonial-wrap-light" style="margin-top: 1.5rem;">
+      <div class="stars">★★★★★</div>
+      <p class="testimonial-text">
+        Harry Hochstöger zeichnet sich durch seine professionelle Planung, seine Verlässlichkeit sowie seine engagierte Betreuung aus.
+        Die gesamte Organisation der Erlebnisschitage unserer Mosaik Mittelschule Katsdorf erfolgte „aus einer Hand" – von der Vorbereitung über die Koordination bis hin zur reibungslosen Durchführung vor Ort.
+      </p>
+      <div class="testimonial-author">
+        <div class="author-avatar" style="background: linear-gradient(135deg, var(--navy), var(--steel));">MS</div>
+        <div class="author-info">
+          <div class="name" style="color: var(--navy);">Mosaik Mittelschule Katsdorf</div>
+          <div class="role" style="color: var(--text-muted);">Schulleitung – Erlebnisschitage</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- PARTNER -->
+<section id="partner" style="background: var(--off-white);">
+  <div class="section-inner">
+    <div class="section-label">Zusammenarbeit</div>
+    <h2 class="section-title">Einige meiner Partner</h2>
+    <p class="section-lead">Mit diesen Partnern arbeite ich zusammen</p>
+    
+    <div class="partner-grid">
+      <!-- Partner 1 -->
+      <a href="https://ordination-patri.at/" target="_blank" class="partner-card">
+       <div class="partner-icon">
+          <img src="logo_patri.png" alt="Patri Logo">
+        </div>
+        <h3>Dr. Christina Patri</h3>
+        <p>Fachärztin für Allgemeinmedizin</p>
+        <div class="partner-link">Zur Ordination →</div>
+      </a>
+
+      <!-- Partner 2 -->
+      <a href="https://therapie-schacherberg.at/" target="_blank" class="partner-card">
+        <div class="partner-icon">🏥</div>
+        <h3>Therapie am Schacherberg</h3>
+        <p>Physiotherapie &amp; Rehabilitation</p>
+        <div class="partner-link">Zur Praxis →</div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- GALERIE -->
+<section id="galerie">
+  <div class="section-inner">
+    <div class="section-label">Einblicke</div>
+    <h2 class="section-title">Impressionen</h2>
+  </div>
+  <div class="gallery-grid" style="max-width:1100px; margin: 0 auto; padding: 0 5%;">
+    <div class="gallery-item">
+      <img src="training_3.jpg" alt=In Action">
+      <div class="gallery-caption">Reaktion &amp; Schnelligkeit</div>
+    </div>
+    <div class="gallery-item">
+      <img src="training_2.png" alt="Outdoor Kraft">
+      <div class="gallery-caption">Kraft &amp; Ausdauer</div>
+    </div>
+    <div class="gallery-item">
+      <img src="einzel_kraft.jpg"  alt="Harry Einzelcoaching – Krafttraining">
+      <div class="gallery-caption">Einzelcoaching – Krafttraining</div>
+    </div>
+    <div class="gallery-item">
+      <img src="training_1.png" alt="Gruppentraining">
+      <div class="gallery-caption">Gruppentraining</div>
+    </div>
+    <div class="gallery-item">
+      <img src="foto_marina.jpg" alt="Freundinnen Workout">
+      <div class="gallery-caption">Freundinnen Workout</div>
+    </div>
+    <div class="gallery-item">
+      <img src="ski_trainer.jpg" alt="Ski Alpin">
+      <div class="gallery-caption">Ski Alpin Betreuung</div>
+    </div>
+  </div>
+</section>
+
+<!-- ÜBER HARRY -->
+<section id="ueber">
+  <div class="section-inner">
+    <div class="section-label">Über mich</div>
+    <h2 class="section-title">Harry Hochstöger</h2>
+    <div class="about-grid">
+      <div class="about-left">
+        <p style="color: var(--text-muted); line-height: 1.75; font-size: 0.97rem; margin-bottom: 1.5rem;">
+          Mit jahrelanger Erfahrung in Sport, Führung und Projektmanagement begleite ich Menschen jeden Alters auf ihrem Weg zu mehr Beweglichkeit, Kraft und Lebensqualität.
+        </p>
+        <h3 style="font-size: 1.1rem; font-weight: 700; color: var(--navy); margin-bottom: 1rem;">Ausbildungen</h3>
+        <ul class="ausbildung-list">
+          <li>Staatlicher Instruktor – Haltungsprävention und Kraft</li>
+          <li>ÖSV Ski Alpin Übungsleiter</li>
+          <li>Führungseminare</li>
+          <li>Lehrlingsausbilder</li>
+          <li>Langjährige Erfahrung in Mitarbeiterführung &amp; Projektmanagement</li>
+          <li>SPL - Segelfluglizenz</li>
+        </ul>
+      </div>
+      <div class="about-right">
+        <h3>Was ich anbiete</h3>
+        <p>Sport- und Fitnessförderung für Kinder, Erwachsene, Senioren, Athleten, Schulen, Betriebe, Vereine und Gemeinden – von der Planung bis zur Durchführung, alles aus einer Hand.</p>
+        <ul class="offer-bullets">
+          <li><span class="bullet">›</span> Einzelcoaching &amp; persönliche Trainingsbegleitung</li>
+           <li><span class="bullet">›</span> Osteoporose Prävention</li>
+          <li><span class="bullet">›</span> Gruppen- und Vereinsprogramme</li>
+          <li><span class="bullet">›</span> Sport- und Gesundheitsprojekte für Schulen &amp; Gemeinden</li>
+          <li><span class="bullet">›</span> Kommunale Fitnessprojekte</li>
+          <li><span class="bullet">›</span> Großes Partnernetzwerk für umfassende Lösungen</li>
+          <li><span class="bullet">›</span> Gesunderhaltung, Mobilisierung für alle Altersgruppen</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- KONTAKT -->
+<section id="kontakt">
+  <div class="section-inner">
+    <div class="section-label">Kontakt</div>
+    <h2 class="section-title">Lass uns sprechen</h2>
+    <p class="section-lead">Ob Einzelcoaching, Gruppenangebot oder maßgeschneidertes Projekt – ich freue mich auf deine Anfrage.</p>
+    <div class="contact-grid">
+      <div>
+        <a href="mailto:office@fitamweg.at" class="contact-item">
+          <div class="contact-icon">
+            <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+          </div>
+          <div>
+            <div class="contact-label">E-Mail</div>
+            <div class="contact-value">office@fitamweg.at</div>
+          </div>
+        </a>
+        <div class="contact-item">
+          <div class="contact-icon">
+            <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.18 2 2 0 0 1 3.58 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.5a16 16 0 0 0 6 6l.92-.92a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          </div>
+          <div>
+            <div class="contact-label">Telefon</div>
+            <div class="contact-value">
+            <a href="tel:++4368110398602">+43 681 10398602</a>
+          </div>
+</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p>&copy; 2026 Harry Hochstöger – Sport &amp; Fitness · <a href="mailto:office@fitamweg.at">Kontakt</a></p>
+</footer>
+
+</body>
+</html>
