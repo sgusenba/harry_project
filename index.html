@@ -175,7 +175,7 @@ nav {
   transition: border-color 0.2s, background 0.2s;
 }
 .btn-outline:hover { border-color: var(--accent); background: rgba(91,143,204,0.12); }
-.hero-logo-wrap { display: flex; justify-content: center; align-items: center; }
+.hero-logo-wrap { display:flex; justify-content:center; align-items:center; gap:30px; flex-wrap:wrap; }
 .hero-logo-bg {
   width: 320px; height: 320px;
   border-radius: 50%;
@@ -607,7 +607,8 @@ footer a { color: var(--sky-light); text-decoration: none; }
   .hero-sub { margin: 0 auto 2rem; }
   .btn-outline { margin: 1rem 0 0; display: block; text-align: center; }
   .hero-logo-bg { width: 220px; height: 220px; }
-  .hero-logo-bg img { width: 160px; height: 160px; }
+  .hero-logo-bg img { width:160px; height:160px; }
+  .hero-logo-wrap { flex-direction:column; gap:20px; }
   .about-grid { grid-template-columns: 1fr; gap: 2rem; }
   .contact-grid { grid-template-columns: 1fr; gap: 1.5rem; }
   .nav-links { display: none; }
@@ -662,10 +663,9 @@ footer a { color: var(--sky-light); text-decoration: none; }
       </div>
     </div>
     <div class="hero-logo-wrap">
-      <div class="hero-logo-bg">
-        <img src="face_harry.png" alt="Harry Hochstöger Fitness">
-      </div>
-    </div>
+<div class="hero-logo-bg"><img src="Logo_frei.png" alt="Logo"></div>
+<div class="hero-logo-bg"><img src="face_harry.png" alt="Harry Hochstöger Fitness"></div>
+</div>
   </div>
 </section>
 
