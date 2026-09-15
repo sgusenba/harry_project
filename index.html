@@ -175,9 +175,9 @@ nav {
   transition: border-color 0.2s, background 0.2s;
 }
 .btn-outline:hover { border-color: var(--accent); background: rgba(91,143,204,0.12); }
-.hero-logo-wrap { display:flex; justify-content:center; align-items:center; gap:30px; flex-wrap:wrap; }
+.hero-logo-wrap { display:flex; justify-content:center; align-items:center; gap:40px; flex-wrap:wrap; }
 .hero-logo-bg {
-  width: 320px; height: 320px;
+  width: 200px; height: 200px;
   border-radius: 50%;
   background: radial-gradient(circle, rgba(91,143,204,0.15) 0%, transparent 70%);
   border: 1px solid rgba(91,143,204,0.2);
@@ -194,12 +194,11 @@ nav {
   border: 1px solid rgba(91,143,204,0.1);
 }
 .hero-logo-bg img {
-  width: 220px;
-  height: 220px;
+  width: 145px;
+  height: 145px;
   object-fit: contain;   /* shows full image instead of cropping */
   border-radius: 50%;
   background: #fff;  /* white fill behind the image */
-  mix-blend-mode: lighten;
   filter: brightness(1.2) drop-shadow(0 0 20px rgba(91,143,204,0.4));
 }
 
@@ -465,9 +464,6 @@ section { padding: 5rem 5%; }
 .contact-value a:hover {
   text-decoration: underline;
 }
-.contact-cta { background: rgba(255,255,255,0.05); border: 1px solid rgba(91,143,204,0.2); border-radius: 8px; padding: 2rem; }
-.contact-cta h3 { font-size: 1.3rem; font-weight: 700; color: white; margin-bottom: 0.7rem; }
-.contact-cta p { color: rgba(255,255,255,0.6); font-size: 0.95rem; line-height: 1.7; margin-bottom: 1.5rem; }
 
 /* GALLERY */
 #galerie { background: var(--navy); padding: 5rem 5%; }
@@ -477,7 +473,8 @@ section { padding: 5rem 5%; }
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 1rem;
-  margin-top: 2.5rem;
+  max-width: 1100px;
+  margin: 2.5rem auto 0;
 }
 .gallery-item {
   position: relative;
@@ -680,7 +677,7 @@ footer a { color: var(--sky-light); text-decoration: none; }
 
        <div class="card">
         <div class="card-header">
-          <div class="card-icon">🏃</div>
+          <div class="card-icon">🎯</div>
           <div class="card-title">Speziell für dich</div>
           <div class="card-subtitle">Individuelles Kursangebot – flexibel & maßgeschneidert</div>
         </div>
@@ -798,12 +795,12 @@ footer a { color: var(--sky-light); text-decoration: none; }
     
     <div class="ref-grid">
      <div class="ref-card">
-        <div class="ref-icon">🏙️</div>
-        <h4> Gesunderhaltung</h4>
+        <div class="ref-icon">🩺</div>
+        <h4>Gesunderhaltung</h4>
         <p>Osteoporose Prävention, Rückengesundheit, Krafttraining im Alltag uvm. Zielgerichtete und maßgeschneiderte Angebote für jede Altersgruppe.</p>
       </div>
       <div class="ref-card">
-        <div class="ref-icon">🏙️</div>
+        <div class="ref-icon">💪</div>
         <h4>Einzelcoaching</h4>
         <p>Unterstützendes Training für deinen Sport.</p>
       </div>
@@ -860,7 +857,7 @@ footer a { color: var(--sky-light); text-decoration: none; }
         </div>
       </div>
 
-    <!-- Testimonial 3: Mosaik Volksschule – full width -->
+    <!-- Testimonial 3: Mosaik Volksschule -->
     <div class="testimonial-wrap-light">
       <div class="stars">★★★★★</div>
       <p class="testimonial-text">
@@ -941,7 +938,7 @@ footer a { color: var(--sky-light); text-decoration: none; }
     <div class="section-label">Einblicke</div>
     <h2 class="section-title">Impressionen</h2>
   </div>
-  <div class="gallery-grid" style="max-width:1100px; margin: 0 auto; padding: 0 5%;">
+  <div class="gallery-grid">
     <div class="gallery-item">
       <img src="training_3.jpg" alt="In Action">
       <div class="gallery-caption">Reaktion &amp; Schnelligkeit</div>
@@ -1014,7 +1011,6 @@ footer a { color: var(--sky-light); text-decoration: none; }
     <h2 class="section-title">Lass uns sprechen</h2>
     <p class="section-lead">Ob Einzelcoaching, Gruppenangebot oder maßgeschneidertes Projekt – ich freue mich auf deine Anfrage.</p>
     <div class="contact-grid">
-      <div>
         <a href="mailto:office@fitamweg.at" class="contact-item">
           <div class="contact-icon">
             <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
@@ -1035,7 +1031,6 @@ footer a { color: var(--sky-light); text-decoration: none; }
           </div>
 </div>
         </div>
-      </div>
     </div>
   </div>
 </section>
@@ -1046,7 +1041,7 @@ footer a { color: var(--sky-light); text-decoration: none; }
 </footer>
 
 
-<div class="lightbox" id="lightbox"><span class="close" onclick="closeLightbox()">&times;</span><img id="lightboxImg"></div>
+<div class="lightbox" id="lightbox"><span class="close" onclick="closeLightbox()">&times;</span><img id="lightboxImg" alt=""></div>
 <script>
 document.querySelectorAll('#galerie .gallery-item img').forEach(img=>{
  img.style.cursor='zoom-in';
