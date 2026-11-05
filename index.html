@@ -242,6 +242,60 @@ section { padding: 5rem 5%; }
   margin-bottom: 3rem;
 }
 
+/* KRAFTRAUM */
+#kraftraum { background: var(--white); }
+.kraftraum-intro {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+.kraftraum-intro .section-lead { margin-bottom: 1.2rem; color: var(--navy); font-weight: 600; font-size: 1.2rem; }
+.kraftraum-text { color: var(--text-muted); font-size: 1.05rem; line-height: 1.75; margin-bottom: 1.8rem; }
+.kraftraum-address {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  color: var(--navy);
+  font-weight: 600;
+  text-decoration: none;
+  background: var(--sky-pale);
+  padding: 0.7rem 1.2rem;
+  border-radius: 6px;
+  transition: background 0.2s;
+}
+.kraftraum-address:hover { background: var(--sky-light); }
+.kraftraum-address svg { flex-shrink: 0; }
+.kraftraum-photos {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+#kraftraum figure img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 8px;
+  cursor: zoom-in;
+}
+.kraftraum-photos img { aspect-ratio: 3/4; object-fit: cover; }
+#kraftraum figcaption { color: var(--text-muted); font-size: 0.88rem; margin-top: 0.6rem; }
+.kraftraum-cta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+  background: linear-gradient(135deg, var(--navy) 0%, var(--navy-mid) 100%);
+  border-radius: 12px;
+  padding: 2.5rem 3rem;
+}
+.kraftraum-slogan { font-size: clamp(1.5rem, 2.6vw, 2.1rem); font-weight: 800; color: var(--white); line-height: 1.2; margin-bottom: 0.4rem; }
+.kraftraum-slogan em { font-style: normal; color: var(--accent); white-space: nowrap; }
+.kraftraum-cta p:not(.kraftraum-slogan) { color: rgba(255,255,255,0.75); font-size: 1.05rem; }
+.kraftraum-cta .btn-primary { flex-shrink: 0; }
+
 /* ANGEBOTE */
 #angebote { background: var(--off-white); }
 .offer-intro { margin-bottom: 4rem; }
@@ -646,11 +700,22 @@ footer a { color: var(--sky-light); text-decoration: none; }
 .modal-close{position:absolute;right:20px;top:10px;font-size:32px;cursor:pointer}
 
 /* RESPONSIVE */
+@media (max-width: 1100px) {
+  .nav-links { gap: 1rem; }
+  .nav-links a { font-size: 0.8rem; letter-spacing: 0.03em; white-space: nowrap; }
+  .nav-brand { white-space: nowrap; }
+}
+@media (min-width: 769px) and (max-width: 900px) {
+  .nav-brand { display: none; }
+}
 @media (max-width: 768px) {
   .hero-inner { grid-template-columns: 1fr; text-align: center; gap: 2.5rem; }
   .hero-sub { margin: 0 auto 2rem; }
   .hero-buttons { flex-direction: column; align-items: stretch; gap: 1rem; }
   .offer-intro .offer-bullets, #ueber .ausbildung-list { grid-template-columns: 1fr; }
+  .kraftraum-intro { grid-template-columns: 1fr; gap: 2rem; }
+  .kraftraum-photos { grid-template-columns: 1fr; }
+  .kraftraum-cta { flex-direction: column; align-items: stretch; text-align: center; padding: 2rem 1.5rem; }
   .hero-logo-bg { width: 220px; height: 220px; }
   .hero-logo-bg img { width:160px; height:160px; }
   .hero-portrait { width: 240px; }
@@ -685,6 +750,7 @@ footer a { color: var(--sky-light); text-decoration: none; }
     <span class="nav-brand">Harry <span>Hochstöger</span></span>
   </a>
   <ul class="nav-links">
+    <li><a href="#kraftraum">Kraftraum</a></li>
     <li><a href="#angebote">Angebote</a></li>
     <li><a href="#ueber">Über mich</a></li>
     <li><a href="#partner">Partner</a></li>
@@ -712,6 +778,51 @@ footer a { color: var(--sky-light); text-decoration: none; }
 <div class="hero-logo-bg"><img src="Logo_frei.png" alt="Logo"></div>
 <div class="hero-portrait"><img src="face_harry_round.jpg" alt="Harry Hochstöger Fitness"></div>
 </div>
+  </div>
+</section>
+
+<!-- KRAFTRAUM -->
+<section id="kraftraum">
+  <div class="section-inner">
+    <div class="kraftraum-intro">
+      <div>
+        <div class="section-label">Neu in Perg – Kraft ohne Barrieren</div>
+        <h2 class="section-title">Ein Kraftraum für ALLE!</h2>
+        <p class="section-lead">Rollstuhlgerecht, barrierefrei und individuell betreut.</p>
+        <p class="kraftraum-text">Egal welche Voraussetzungen du mitbringst – hier zählt, was du erreichen möchtest!</p>
+        <a href="https://www.google.com/maps/search/?api=1&amp;query=Naarner+Stra%C3%9Fe+37%2C+4320+Perg" target="_blank" rel="noopener" class="kraftraum-address">
+          <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          Naarner Straße 37, 4320 Perg
+        </a>
+      </div>
+      <figure>
+        <img src="kraftraum_eingang.jpg" alt="Eingang an der Naarner Straße 37 in Perg: ein Mann in Sportkleidung hält die Glastür auf" loading="lazy" decoding="async" width="1200" height="1174">
+        <figcaption>Der Eingang in der Naarner Straße 37</figcaption>
+      </figure>
+    </div>
+
+    <div class="kraftraum-photos">
+      <figure>
+        <img src="kraftraum_rack.jpg" alt="Power Rack mit Langhantel, Trainingsbändern und verstellbarer Hantelbank auf einer Sportmatte" loading="lazy" decoding="async" width="900" height="1200">
+        <figcaption>Power Rack mit Hantelbank</figcaption>
+      </figure>
+      <figure>
+        <img src="kraftraum_halfrack.jpg" alt="Zweites Rack mit Langhantel und Schrägbank, dahinter Kettlebells und ein Balance Board" loading="lazy" decoding="async" width="900" height="1200">
+        <figcaption>Freie Gewichte, Kettlebells &amp; Balance Board</figcaption>
+      </figure>
+      <figure>
+        <img src="kraftraum_lift.jpg" alt="Zusammenklappbarer Plattform-Treppenlift für Rollstühle am Treppenabsatz hinter der Eingangstür" loading="lazy" decoding="async" width="900" height="1200">
+        <figcaption>Treppenlift für Rollstühle</figcaption>
+      </figure>
+    </div>
+
+    <div class="kraftraum-cta">
+      <div>
+        <p class="kraftraum-slogan">Training für alle. <em>Ohne Grenzen.</em></p>
+        <p>Termin vereinbaren, vorbeikommen und durchstarten!</p>
+      </div>
+      <a href="#kontakt" class="btn-primary">Termin vereinbaren</a>
+    </div>
   </div>
 </section>
 
@@ -808,6 +919,37 @@ footer a { color: var(--sky-light); text-decoration: none; }
             <div class="meta-item">
               <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
               Fitweg entlang der Aist / Wald
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <div class="card-icon">🎿</div>
+          <div class="card-title">SkiFit</div>
+          <div class="card-subtitle">Stark. Stabil. Sicher. Durch den Winter.</div>
+        </div>
+        <div class="card-body">
+          <div class="tag-list">
+            <span class="tag">Kraft</span>
+            <span class="tag">Stabilität</span>
+            <span class="tag">Koordination</span>
+            <span class="tag">Beweglichkeit</span>
+          </div>
+          <p>Starke Beinmuskeln, gutes Gleichgewicht, saubere Bewegungsabläufe und mobile Hüften, Knie und Waden: Eine optimale Vorbereitung reduziert das Verletzungsrisiko und sorgt für mehr Fahrspaß und Sicherheit – bei jedem Schwung.</p>
+          <div class="card-meta">
+            <div class="meta-item">
+              <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+              Mehr Sicherheit auf der Piste
+            </div>
+            <div class="meta-item">
+              <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="m8 3 4 8 5-5 5 15H2L8 3z"/></svg>
+              Fit für deine nächste Skitour
+            </div>
+            <div class="meta-item">
+              <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              In der Natur und in deiner Nähe
             </div>
           </div>
         </div>
@@ -1101,7 +1243,7 @@ footer a { color: var(--sky-light); text-decoration: none; }
 
 <div class="lightbox" id="lightbox"><span class="close" onclick="closeLightbox()">&times;</span><img id="lightboxImg" alt=""></div>
 <script>
-document.querySelectorAll('#galerie .gallery-item img').forEach(img=>{
+document.querySelectorAll('#galerie .gallery-item img, #kraftraum figure img').forEach(img=>{
  img.style.cursor='zoom-in';
  img.onclick=()=>{document.getElementById('lightbox').style.display='flex';document.getElementById('lightboxImg').src=img.src;}
 });
